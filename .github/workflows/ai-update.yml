@@ -1,0 +1,33 @@
+name: AI M3U Pipeline
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm install node-fetch
+
+      - name: Run AI validation pipeline
+        run: node scripts/pipeline.js
+
+      - name: Build M3U files
+        run: node scripts/buildM3U.js
+
+      - name: Commit updates
+        run: |
+          git config user.name "ai-bot"
+          git config user.email "ai@bot.com"
+          git add .
+          git commit -m "AI stream refresh" || echo "No changes"
+          git push
