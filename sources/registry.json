@@ -1,0 +1,91 @@
+{
+  "official_streams": [
+    {
+      "name": "Samsung TV Plus (USA)",
+      "url": "https://apsattv.com/ssungusa.m3u",
+      "origin": "wirelesshack-reference",
+      "category": "live_tv"
+    },
+    {
+      "name": "LG Channels",
+      "url": "https://www.apsattv.com/uslg.m3u",
+      "origin": "wirelesshack-reference",
+      "category": "live_tv"
+    },
+    {
+      "name": "Vizio WatchFree",
+      "url": "https://www.apsattv.com/vizio.m3u",
+      "origin": "wirelesshack-reference",
+      "category": "live_tv"
+    },
+    {
+      "name": "DistroTV",
+      "url": "https://www.apsattv.com/distro.m3u",
+      "origin": "wirelesshack-reference",
+      "category": "live_tv"
+    },
+    {
+      "name": "XUMO TV",
+      "url": "https://www.apsattv.com/xumo.m3u",
+      "origin": "wirelesshack-reference",
+      "category": "live_tv"
+    }
+  ],
+
+  "aggregated_open_source": [
+    {
+      "name": "IPTV-org Global Index (12K+ channels)",
+      "url": "https://iptv-org.github.io/iptv/index.m3u",
+      "origin": "wirelesshack-reference",
+      "category": "global_index"
+    },
+    {
+      "name": "IPTV-org US Channels",
+      "url": "https://iptv-org.github.io/iptv/countries/us.m3u",
+      "origin": "wirelesshack-reference",
+      "category": "regional"
+    },
+    {
+      "name": "IPTV-org Movies",
+      "url": "https://iptv-org.github.io/iptv/categories/movies.m3u",
+      "origin": "wirelesshack-reference",
+      "category": "movies"
+    },
+    {
+      "name": "IPTV-org News",
+      "url": "https://iptv-org.github.io/iptv/categories/news.m3u",
+      "origin": "wirelesshack-reference",
+      "category": "news"
+    },
+    {
+      "name": "IPTV-org Documentary",
+      "url": "https://iptv-org.github.io/iptv/categories/documentary.m3u",
+      "origin": "wirelesshack-reference",
+      "category": "documentary"
+    },
+    {
+      "name": "IPTV-org Music",
+      "url": "https://iptv-org.github.io/iptv/categories/music.m3u",
+      "origin": "wirelesshack-reference",
+      "category": "music"
+    }
+  ],
+
+  "testing_streams": [
+    {
+      "name": "Free-TV IPTV (GitHub Open Test Stream)",
+      "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8",
+      "origin": "wirelesshack-reference",
+      "category": "testing"
+    }
+  ],
+
+  "legacy_sources_reference_only": [
+    {
+      "note": "Apsattv hosted regional playlists (LG, Roku, Samsung variants)",
+      "origin": "wirelesshack-listed",
+      "status": "unstable",
+      "usage": "validation_required"
+    }
+  ]
+}
