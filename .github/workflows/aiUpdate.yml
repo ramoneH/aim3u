@@ -1,0 +1,43 @@
+name: AI Self-Healing Pipeline
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm install
+
+      # 🧠 SELF HEAL STEP
+      - name: Run Self-Healing System
+        run: node scripts/selfHeal.js
+
+      # 🚀 PIPELINE
+      - name: Run AI pipeline
+        run: node scripts/pipeline.js
+
+      - name: Build M3U
+        run: node scripts/buildM3U.js
+
+      - name: Commit changes
+        run: |
+          git config user.name "ai-bot"
+          git config user.email "ai@bot.com"
+          git add .
+          git commit -m "AI auto-heal + refresh" || echo "No changes"
+          git push
