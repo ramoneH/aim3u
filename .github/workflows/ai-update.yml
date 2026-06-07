@@ -1,12 +1,12 @@
-name: AI M3U Pipeline
+name: AI M3U Self-Healing Pipeline
 
 on:
   schedule:
     - cron: "0 */6 * * *"
   workflow_dispatch:
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -20,18 +20,24 @@ jobs:
         with:
           node-version: 24
 
-      - run: npm install node-fetch
+      - name: Install dependencies
+        run: npm install
 
-      - name: Run AI validation pipeline
+      # 🧠 SELF HEAL STEP
+      - name: Run Self-Healing System
+        run: node scripts/selfHeal.js
+
+      # 🚀 PIPELINE
+      - name: Run AI pipeline
         run: node scripts/pipeline.js
 
-      - name: Build M3U files
+      - name: Build M3U
         run: node scripts/buildM3U.js
 
-      - name: Commit updates
+      - name: Commit changes
         run: |
           git config user.name "ai-bot"
           git config user.email "ai@bot.com"
           git add .
-          git commit -m "AI stream refresh" || echo "No changes"
-          git pushI'm in I'm
+          git commit -m "AI auto-heal + refresh" || echo "No changes"
+          git push
