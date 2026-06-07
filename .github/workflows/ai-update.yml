@@ -5,6 +5,9 @@ on:
     - cron: "0 */6 * * *"
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,9 +15,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - run: npm install node-fetch
 
@@ -30,4 +34,4 @@ jobs:
           git config user.email "ai@bot.com"
           git add .
           git commit -m "AI stream refresh" || echo "No changes"
-          git push
+          git pushI'm in I'm
