@@ -1,0 +1,14 @@
+{
+  "name": "aim3u",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "AI-powered M3U playlist generator",
+  "main": "scripts/pipeline.js",
+  "scripts": {
+    "start": "node scripts/pipeline.js",
+    "build": "node scripts/pipeline.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
